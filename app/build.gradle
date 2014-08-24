@@ -1,0 +1,44 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 20
+    buildToolsVersion "20.0.0"
+
+    packagingOptions {
+        exclude 'META-INF/services/javax.annotation.processing.Processor'
+        exclude 'LICENSE.txt'
+    }
+
+    defaultConfig {
+        applicationId "org.andydyer.androidtestdemo"
+        minSdkVersion 15
+        targetSdkVersion 20
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "com.google.android.apps.common.testing.testrunner.GoogleInstrumentationTestRunner"
+    }
+
+    buildTypes {
+        release {
+            runProguard false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile 'com.google.guava:guava:18.0-rc2'
+    compile 'com.squareup.retrofit:retrofit:1.6.1'
+    provided 'com.squareup.dagger:dagger-compiler:1.2.1'
+    compile 'com.squareup.dagger:dagger:1.2.2'
+    compile 'com.squareup.picasso:picasso:2.3.3'
+    compile 'com.google.code.gson:gson:2.3'
+    provided 'org.projectlombok:lombok:1.14.4'
+    compile 'com.jakewharton:butterknife:5.1.2'
+
+    androidTestCompile('com.jakewharton.espresso:espresso:1.1-r3') {
+        // TODO workaround for http://b.android.com/65445
+        exclude group:'com.google.guava', module:'guava'
+    }
+}
