@@ -18,14 +18,7 @@ public class MockApiServiceModule {
 
     @Provides
     @Singleton
-    public ApiService provideApiService(Client client) {
-        return new MockApiService(client);
-    }
-
-    @Provides
-    @Singleton
-    Client provideMockClient() {
-        Client client = mock(Client.class);
-        return client;
+    public ApiService provideApiService() {
+        return new MockApiService();
     }
 }

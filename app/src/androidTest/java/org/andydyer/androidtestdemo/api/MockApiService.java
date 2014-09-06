@@ -12,10 +12,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.Collections;
 
-import javax.inject.Inject;
-
 import retrofit.Callback;
-import retrofit.client.Client;
 import retrofit.client.Response;
 import retrofit.http.Path;
 import retrofit.mime.TypedByteArray;
@@ -28,10 +25,6 @@ public class MockApiService implements ApiService {
     private static final int HTTP_OK_STATUS = 200;
 
     private static final String EVENTS_RESPONSE_FILE = "events_response.json";
-
-    Client client;
-
-    @Inject public MockApiService(Client client) { this.client = client; }
 
     @Override
     public void getEvents(@Path("organization") String organization, Callback<Events> callback) {
