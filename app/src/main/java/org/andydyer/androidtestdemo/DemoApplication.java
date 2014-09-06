@@ -20,7 +20,7 @@ public class DemoApplication extends Application {
     public void onCreate() {
         super.onCreate();
         instance = this;
-        objectGraph = dagger.ObjectGraph.create(new ApiServiceModule());
+        objectGraph = dagger.ObjectGraph.create(Modules.list());
     }
 
     public void inject(@NonNull Object dependent) {
