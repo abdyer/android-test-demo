@@ -6,6 +6,7 @@ android {
 
     packagingOptions {
         exclude 'META-INF/services/javax.annotation.processing.Processor'
+        exclude 'META-INF/LICENSE.txt'
         exclude 'LICENSE.txt'
     }
 
@@ -37,8 +38,23 @@ dependencies {
     provided 'org.projectlombok:lombok:1.14.4'
     compile 'com.jakewharton:butterknife:5.1.2'
 
+    androidTestCompile 'org.mockito:mockito-core:1.9.5'
+    androidTestCompile 'com.google.dexmaker:dexmaker:1.1'
+    androidTestCompile('com.google.dexmaker:dexmaker-mockito:1.1') {
+        exclude module: 'hamcrest-core'
+        exclude module: 'mockito-core'
+    }
+    androidTestCompile 'commons-io:commons-io:2.4'
     androidTestCompile('com.jakewharton.espresso:espresso:1.1-r3') {
         // TODO workaround for http://b.android.com/65445
         exclude group:'com.google.guava', module:'guava'
+        exclude group:'com.squareup.dagger'
+        exclude group: 'javax.inject:javax.inject'
+        exclude group: 'javax.annotation:javax.annotation-api'
+        exclude group: 'com.google.guava:guava'
+        exclude group: 'com.google.code.findbugs:jsr305'
+        exclude group: 'org.hamcrest:hamcrest-core'
+        exclude group: 'org.hamcrest:hamcrest-library'
+        exclude group: 'org.hamcrest:hamcrest-integration'
     }
 }
