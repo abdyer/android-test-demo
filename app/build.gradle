@@ -29,7 +29,6 @@ android {
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile 'com.google.guava:guava:18.0-rc2'
     compile 'com.squareup.retrofit:retrofit:1.6.1'
     provided 'com.squareup.dagger:dagger-compiler:1.2.1'
     compile 'com.squareup.dagger:dagger:1.2.2'
@@ -44,6 +43,7 @@ dependencies {
         exclude module: 'hamcrest-core'
         exclude module: 'mockito-core'
     }
+    androidTestCompile 'com.google.guava:guava:18.0-rc2'
     androidTestCompile 'commons-io:commons-io:2.4'
     androidTestCompile('com.jakewharton.espresso:espresso:1.1-r3') {
         // TODO workaround for http://b.android.com/65445
