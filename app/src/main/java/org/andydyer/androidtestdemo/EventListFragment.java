@@ -18,8 +18,8 @@ import com.squareup.picasso.Picasso;
 
 import org.andydyer.androidtestdemo.api.ApiService;
 import org.andydyer.androidtestdemo.api.Event;
+import org.andydyer.androidtestdemo.api.Events;
 
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.GregorianCalendar;
 import java.util.List;
@@ -36,7 +36,7 @@ import retrofit.client.Response;
 /**
  * Created by andy on 8/23/14.
  */
-public class EventListFragment extends ListFragment implements Callback<List<Event>> {
+public class EventListFragment extends ListFragment implements Callback<Events> {
 
     @Inject ApiService apiService;
 
@@ -52,7 +52,7 @@ public class EventListFragment extends ListFragment implements Callback<List<Eve
     }
 
     @Override
-    public void success(List<Event> events, Response response) {
+    public void success(Events events, Response response) {
         getActivity().setProgressBarIndeterminateVisibility(false);
         setListShown(true);
         final EventsAdapter adapter = new EventsAdapter(getActivity(), events);
@@ -115,7 +115,7 @@ public class EventListFragment extends ListFragment implements Callback<List<Eve
                 calendar.setTime(format.parse(isoDateTime));
                 return DateUtils.getRelativeTimeSpanString(calendar.getTimeInMillis(),
                         System.currentTimeMillis(), DateUtils.SECOND_IN_MILLIS).toString();
-            } catch (ParseException e) {
+            } catch (Exception e) {
                 return isoDateTime;
             }
         }
