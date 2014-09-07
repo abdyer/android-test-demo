@@ -5,6 +5,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
 import org.andydyer.androidtestdemo.EventListFragment;
+import org.andydyer.androidtestdemo.LoginActivity;
 
 import javax.inject.Singleton;
 
@@ -17,7 +18,7 @@ import retrofit.converter.GsonConverter;
 /**
  * Created by andy on 8/23/14.
  */
-@Module(injects = EventListFragment.class)
+@Module(injects = {EventListFragment.class, LoginActivity.class})
 public class ApiServiceModule {
 
     @Provides @Singleton
@@ -31,5 +32,10 @@ public class ApiServiceModule {
                 .setLogLevel(RestAdapter.LogLevel.FULL).setLog(new AndroidLog("API"))
                 .build()
                 .create(ApiService.class);
+    }
+
+    @Provides @Singleton
+    public AuthenticationService provideAuthenticationService() {
+        return null; // not implemented
     }
 }
