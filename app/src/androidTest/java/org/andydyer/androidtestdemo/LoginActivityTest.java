@@ -5,8 +5,6 @@ import android.test.ActivityInstrumentationTestCase2;
 import org.andydyer.androidtestdemo.api.AuthenticationService;
 import org.andydyer.androidtestdemo.api.MockApiServiceModule;
 import org.mockito.ArgumentCaptor;
-import org.mockito.Captor;
-import org.mockito.MockitoAnnotations;
 
 import javax.inject.Inject;
 
@@ -31,8 +29,6 @@ public class LoginActivityTest extends ActivityInstrumentationTestCase2<LoginAct
 
     @Inject AuthenticationService authenticationService;
 
-    @Captor ArgumentCaptor<Callback<Boolean>> captor;
-
     public LoginActivityTest() {
         super(LoginActivity.class);
     }
@@ -40,7 +36,6 @@ public class LoginActivityTest extends ActivityInstrumentationTestCase2<LoginAct
     @Override
     protected void setUp() throws Exception {
         super.setUp();
-        MockitoAnnotations.initMocks(this);
         ObjectGraph graph = ObjectGraph.create(new MockApiServiceModule());
         graph.inject(this);
         graph.inject(getActivity());
@@ -72,6 +67,7 @@ public class LoginActivityTest extends ActivityInstrumentationTestCase2<LoginAct
         onView(withId(R.id.password)).perform(typeText("abcde"), closeSoftKeyboard());
         onView(withId(R.id.email_sign_in_button)).perform(click());
 
+        final ArgumentCaptor<Callback> captor = ArgumentCaptor.forClass(Callback.class);
         verify(authenticationService).login(anyString(), anyString(), anyString(), captor.capture());
         getActivity().runOnUiThread(new Runnable() {
             @Override
