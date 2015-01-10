@@ -3,7 +3,6 @@ package org.andydyer.androidtestdemo;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
-import android.app.Activity;
 import android.app.LoaderManager.LoaderCallbacks;
 import android.content.CursorLoader;
 import android.content.Intent;
@@ -13,6 +12,7 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.ContactsContract;
+import android.support.v7.app.ActionBarActivity;
 import android.text.TextUtils;
 import android.view.KeyEvent;
 import android.view.View;
@@ -40,7 +40,7 @@ import retrofit.client.Response;
  * A login screen that offers login via email/password.
 
  */
-public class LoginActivity extends Activity implements LoaderCallbacks<Cursor>, Callback<Boolean> {
+public class LoginActivity extends ActionBarActivity implements LoaderCallbacks<Cursor>, Callback<Boolean> {
 
     @Inject AuthenticationService authenticationService;
 

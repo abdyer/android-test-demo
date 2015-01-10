@@ -2,8 +2,6 @@ package org.andydyer.androidtestdemo;
 
 import android.app.Application;
 
-import org.andydyer.androidtestdemo.api.ApiServiceModule;
-
 import lombok.Getter;
 import lombok.NonNull;
 

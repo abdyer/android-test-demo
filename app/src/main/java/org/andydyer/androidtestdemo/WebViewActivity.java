@@ -1,9 +1,8 @@
 package org.andydyer.androidtestdemo;
 
-import android.app.Activity;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.view.MenuItem;
-import android.view.Window;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
@@ -13,7 +12,7 @@ import butterknife.InjectView;
 /**
  * Created by andy on 8/23/14.
  */
-public class WebViewActivity extends Activity {
+public class WebViewActivity extends ActionBarActivity {
 
     public static final String EXTRA_URL = "url";
     public static final String EXTRA_TITLE = "title";
@@ -22,13 +21,11 @@ public class WebViewActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_webview);
-        setProgressBarIndeterminate(true);
         ButterKnife.inject(this);
-        getActionBar().setTitle(getIntent().getStringExtra(EXTRA_TITLE));
-        getActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setTitle(getIntent().getStringExtra(EXTRA_TITLE));
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         loadUrl();
     }
 
@@ -36,11 +33,9 @@ public class WebViewActivity extends Activity {
         String url = getIntent().getStringExtra(EXTRA_URL);
         webview.setWebViewClient(new WebViewClient() {
             public boolean shouldOverrideUrlLoading(WebView view, String url) {
-                setProgressBarIndeterminateVisibility(false);
                 return false;
             }
         });
-        setProgressBarIndeterminateVisibility(true);
         webview.loadUrl(url);
     }
 
