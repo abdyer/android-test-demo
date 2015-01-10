@@ -1,9 +1,8 @@
 package org.andydyer.androidtestdemo.test;
 
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.webkit.WebView;
-import android.widget.Adapter;
-import android.widget.AdapterView;
 import android.widget.EditText;
 
 import org.hamcrest.Description;
@@ -24,11 +23,10 @@ public class CustomMatchers {
 
             @Override
             public boolean matchesSafely(View view) {
-                if (!(view instanceof AdapterView)) {
+                if (!(view instanceof RecyclerView)) {
                     return false;
                 }
-                Adapter adapter = ((AdapterView) view).getAdapter();
-                return !adapter.isEmpty();
+                return ((RecyclerView) view).getAdapter().getItemCount() > 0;
             }
         };
     }
