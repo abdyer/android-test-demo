@@ -35,12 +35,12 @@ public class MainActivityTest extends ActivityInstrumentationTestCase2<MainActiv
 
     public void testRowClickLaunchesRepoUrl() throws Exception {
         onData(is(instanceOf(Event.class))).atPosition(0).perform(click());
-        onView(withId(R.id.webview)).check(matches(showsUrl("https://github.com/google/iosched")));
+        onView(withId(R.id.webview)).check(matches(showsUrl("github.com/google/iosched")));
     }
 
     public void testImageClickLaunchesProfileUrl() throws Exception {
         onData(is(instanceOf(Event.class))).atPosition(0)
                 .onChildView(withId(R.id.event_list_item_avatar)).perform(click());
-        onView(withId(R.id.webview)).check(matches(showsUrl("http://github.com/karthikraj-duraisamy")));
+        onView(withId(R.id.webview)).check(matches(showsUrl("github.com/karthikraj-duraisamy")));
     }
 }

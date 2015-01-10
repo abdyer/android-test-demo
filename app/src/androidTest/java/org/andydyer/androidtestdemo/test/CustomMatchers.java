@@ -46,7 +46,7 @@ public class CustomMatchers {
                     return false;
                 }
                 WebView webView = (WebView) view;
-                return webView.getUrl().equals(url);
+                return webView.getUrl().contains(url);
             }
         };
     }
