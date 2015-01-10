@@ -9,6 +9,9 @@ import retrofit.http.Query;
  */
 public interface AuthenticationService {
 
-    @POST("/login/oauth/access_token") // authentication is not implemented in this project. this endpoint is here to demonstrate mocking a response for testing.
-    public void login(@Query("client_id") String clientId, @Query("client_secret") String clientSecret, @Query("code") String code, Callback<Boolean> callback);
+    // Authentication is not implemented in this project. this endpoint is here to demonstrate
+    // mocking a response for testing.
+    @POST("/login/oauth/access_token")
+    public void login(@Query("client_id") String clientId, @Query("client_secret") String clientSecret,
+                      @Query("code") String code, Callback<Boolean> callback);
 }

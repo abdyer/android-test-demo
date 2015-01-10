@@ -4,11 +4,11 @@ import android.test.ActivityInstrumentationTestCase2;
 
 import org.andydyer.androidtestdemo.api.Event;
 
-import static com.google.android.apps.common.testing.ui.espresso.Espresso.onData;
-import static com.google.android.apps.common.testing.ui.espresso.Espresso.onView;
-import static com.google.android.apps.common.testing.ui.espresso.action.ViewActions.click;
-import static com.google.android.apps.common.testing.ui.espresso.assertion.ViewAssertions.matches;
-import static com.google.android.apps.common.testing.ui.espresso.matcher.ViewMatchers.withId;
+import static android.support.test.espresso.Espresso.onData;
+import static android.support.test.espresso.Espresso.onView;
+import static android.support.test.espresso.action.ViewActions.click;
+import static android.support.test.espresso.assertion.ViewAssertions.matches;
+import static android.support.test.espresso.matcher.ViewMatchers.withId;
 import static org.andydyer.androidtestdemo.test.CustomMatchers.hasData;
 import static org.andydyer.androidtestdemo.test.CustomMatchers.showsUrl;
 import static org.hamcrest.Matchers.instanceOf;
@@ -35,7 +35,7 @@ public class MainActivityTest extends ActivityInstrumentationTestCase2<MainActiv
 
     public void testRowClickLaunchesRepoUrl() throws Exception {
         onData(is(instanceOf(Event.class))).atPosition(0).perform(click());
-        onView(withId(R.id.webview)).check(matches(showsUrl("http://github.com/google/iosched")));
+        onView(withId(R.id.webview)).check(matches(showsUrl("https://github.com/google/iosched")));
     }
 
     public void testImageClickLaunchesProfileUrl() throws Exception {

@@ -18,7 +18,7 @@ import retrofit.http.Path;
 import retrofit.mime.TypedByteArray;
 
 /**
- * Created by andy on 8/31/14.
+ * Implement ApiService interface to return test data from JSON files and avoid making network requests.
  */
 public class MockApiService implements ApiService {
 
