@@ -3,6 +3,8 @@ package org.andydyer.androidtestdemo;
 import android.support.test.espresso.contrib.RecyclerViewActions;
 import android.test.ActivityInstrumentationTestCase2;
 
+import org.andydyer.androidtestdemo.ui.MainActivity;
+
 import static android.support.test.espresso.Espresso.onView;
 import static android.support.test.espresso.action.ViewActions.click;
 import static android.support.test.espresso.assertion.ViewAssertions.matches;

@@ -1,4 +1,4 @@
-package org.andydyer.androidtestdemo;
+package org.andydyer.androidtestdemo.ui.fragments;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -16,6 +16,9 @@ import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
 
+import org.andydyer.androidtestdemo.DemoApplication;
+import org.andydyer.androidtestdemo.R;
+import org.andydyer.androidtestdemo.ui.WebViewActivity;
 import org.andydyer.androidtestdemo.api.ApiService;
 import org.andydyer.androidtestdemo.api.Event;
 import org.andydyer.androidtestdemo.api.Events;
@@ -54,9 +57,14 @@ public class EventListFragment extends Fragment implements Callback<Events> {
         View view = inflater.inflate(R.layout.fragment_event_list, container, false);
         ButterKnife.inject(this, view);
 
+        if(savedInstanceState == null) {
+            adapter = new EventsAdapter();
+        }
+
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.addItemDecoration(new SimpleDividerItemDecoration(getActivity()));
+        recyclerView.setAdapter(adapter);
 
         return view;
     }
@@ -66,12 +74,9 @@ public class EventListFragment extends Fragment implements Callback<Events> {
         DemoApplication.getInstance().inject(this);
 
         if(savedInstanceState == null) {
-            adapter = new EventsAdapter();
             //TODO: Show progress spinner while loading
             apiService.getEvents("google", this);
         }
-
-        recyclerView.setAdapter(adapter);
     }
 
     @Override

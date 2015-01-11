@@ -4,6 +4,7 @@ import android.test.ActivityInstrumentationTestCase2;
 
 import org.andydyer.androidtestdemo.api.AuthenticationService;
 import org.andydyer.androidtestdemo.api.MockApiServiceModule;
+import org.andydyer.androidtestdemo.ui.LoginActivity;
 import org.mockito.ArgumentCaptor;
 
 import javax.inject.Inject;

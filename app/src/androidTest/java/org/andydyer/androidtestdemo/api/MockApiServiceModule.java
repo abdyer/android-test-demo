@@ -1,7 +1,7 @@
 package org.andydyer.androidtestdemo.api;
 
-import org.andydyer.androidtestdemo.EventListFragment;
-import org.andydyer.androidtestdemo.LoginActivity;
+import org.andydyer.androidtestdemo.ui.fragments.EventListFragment;
+import org.andydyer.androidtestdemo.ui.LoginActivity;
 import org.andydyer.androidtestdemo.LoginActivityTest;
 
 import javax.inject.Singleton;

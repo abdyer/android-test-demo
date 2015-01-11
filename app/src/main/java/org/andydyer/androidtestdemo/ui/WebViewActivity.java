@@ -1,10 +1,12 @@
-package org.andydyer.androidtestdemo;
+package org.andydyer.androidtestdemo.ui;
 
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.MenuItem;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+
+import org.andydyer.androidtestdemo.R;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;

@@ -4,8 +4,8 @@ import com.google.gson.FieldNamingPolicy;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
-import org.andydyer.androidtestdemo.EventListFragment;
-import org.andydyer.androidtestdemo.LoginActivity;
+import org.andydyer.androidtestdemo.ui.fragments.EventListFragment;
+import org.andydyer.androidtestdemo.ui.LoginActivity;
 
 import javax.inject.Singleton;
 

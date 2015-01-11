@@ -1,4 +1,4 @@
-package org.andydyer.androidtestdemo;
+package org.andydyer.androidtestdemo.ui;
 
 import android.app.LoaderManager.LoaderCallbacks;
 import android.content.CursorLoader;
@@ -20,6 +20,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import org.andydyer.androidtestdemo.R;
 import org.andydyer.androidtestdemo.api.AuthenticationService;
 
 import java.util.ArrayList;

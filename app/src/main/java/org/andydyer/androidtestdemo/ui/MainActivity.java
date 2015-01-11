@@ -1,9 +1,12 @@
-package org.andydyer.androidtestdemo;
+package org.andydyer.androidtestdemo.ui;
 
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+
+import org.andydyer.androidtestdemo.R;
+import org.andydyer.androidtestdemo.ui.fragments.EventListFragment;
 
 public class MainActivity extends ActionBarActivity {
 
