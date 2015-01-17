@@ -18,8 +18,8 @@ import retrofit.converter.GsonConverter;
 /**
  * Created by andy on 8/23/14.
  */
-@Module(injects = {EventListFragment.class, LoginActivity.class})
-public class ApiServiceModule {
+@Module
+public final class ApiServiceModule {
 
     @Provides @Singleton
     public ApiService provideApiService() {

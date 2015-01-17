@@ -1,15 +1,8 @@
 package org.andydyer.androidtestdemo;
 
-import android.test.ActivityInstrumentationTestCase2;
-
-import org.andydyer.androidtestdemo.api.AuthenticationService;
-import org.andydyer.androidtestdemo.api.MockApiServiceModule;
 import org.andydyer.androidtestdemo.ui.LoginActivity;
 import org.mockito.ArgumentCaptor;
 
-import javax.inject.Inject;
-
-import dagger.ObjectGraph;
 import retrofit.Callback;
 import retrofit.RetrofitError;
 
@@ -26,9 +19,7 @@ import static org.mockito.Mockito.verify;
 /**
  * Created by andy on 9/6/14.
  */
-public class LoginActivityTest extends ActivityInstrumentationTestCase2<LoginActivity> {
-
-    @Inject AuthenticationService authenticationService;
+public class LoginActivityTest extends InjectedActivityTest<LoginActivity> {
 
     public LoginActivityTest() {
         super(LoginActivity.class);
@@ -37,9 +28,7 @@ public class LoginActivityTest extends ActivityInstrumentationTestCase2<LoginAct
     @Override
     protected void setUp() throws Exception {
         super.setUp();
-        ObjectGraph graph = ObjectGraph.create(new MockApiServiceModule());
-        graph.inject(this);
-        graph.inject(getActivity());
+        getActivity();
     }
 
     public void testEmptyEmailShowsError() {

@@ -20,6 +20,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import org.andydyer.androidtestdemo.DemoApplication;
 import org.andydyer.androidtestdemo.R;
 import org.andydyer.androidtestdemo.api.AuthenticationService;
 
@@ -51,6 +52,7 @@ public class LoginActivity extends ActionBarActivity implements LoaderCallbacks<
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        DemoApplication.getInstance().getGraph().inject(this);
 
         // Set up the login form.
         mEmailView = (AutoCompleteTextView) findViewById(R.id.email);

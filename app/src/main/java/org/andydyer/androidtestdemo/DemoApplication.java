@@ -3,14 +3,13 @@ package org.andydyer.androidtestdemo;
 import android.app.Application;
 
 import lombok.Getter;
-import lombok.NonNull;
 
 /**
  * Created by andy on 8/23/14.
  */
 public class DemoApplication extends Application {
 
-    private dagger.ObjectGraph objectGraph;
+    @Getter Graph graph;
 
     @Getter static DemoApplication instance;
 
@@ -18,10 +17,10 @@ public class DemoApplication extends Application {
     public void onCreate() {
         super.onCreate();
         instance = this;
-        objectGraph = dagger.ObjectGraph.create(Modules.list());
+        graph = Graph.Initializer.init(false);
     }
 
-    public void inject(@NonNull Object dependent) {
-        objectGraph.inject(dependent);
+    public void setMockMode(boolean useMock) {
+        graph = Graph.Initializer.init(useMock);
     }
 }

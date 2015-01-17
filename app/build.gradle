@@ -1,4 +1,16 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+        // This plugin helps Android Studio find Dagger's generated classes
+        classpath 'com.neenbedankt.gradle.plugins:android-apt:1.4'
+    }
+}
+
 apply plugin: 'com.android.application'
+apply plugin: 'com.neenbedankt.android-apt'
 
 android {
     compileSdkVersion 21
@@ -8,6 +20,7 @@ android {
         exclude 'META-INF/services/javax.annotation.processing.Processor'
         exclude 'META-INF/LICENSE.txt'
         exclude 'LICENSE.txt'
+        exclude 'LICENSE'
     }
 
     defaultConfig {
@@ -27,22 +40,31 @@ android {
     }
 }
 
+repositories {
+    // Currently Dagger 2 is published to Sonatype's maven repo
+    maven { url "https://oss.sonatype.org/content/repositories/snapshots/" }
+}
+
 dependencies {
     compile 'com.squareup.retrofit:retrofit:1.9.0'
-    provided 'com.squareup.dagger:dagger-compiler:1.2.1'
-    compile 'com.squareup.dagger:dagger:1.2.2'
     compile 'com.squareup.picasso:picasso:2.4.0'
     compile 'com.google.code.gson:gson:2.3.1'
-    provided 'org.projectlombok:lombok:1.14.8'
+    compile 'org.projectlombok:lombok:1.14.8'
     compile 'com.jakewharton:butterknife:6.0.0'
     compile 'com.android.support:appcompat-v7:21.0.+'
     compile 'com.android.support:recyclerview-v7:21.0.+'
 
+    // Dagger 2 dependencies
+    compile 'com.google.dagger:dagger:2.0-SNAPSHOT'
+    apt 'com.google.dagger:dagger-compiler:2.0-SNAPSHOT'
+    provided 'org.glassfish:javax.annotation:10.0-b28'
+
+    debugCompile 'org.mockito:mockito-core:1.10.19'
+    debugCompile 'com.google.dexmaker:dexmaker:1.2'
+    debugCompile 'com.google.dexmaker:dexmaker-mockito:1.2'
+    debugCompile 'commons-io:commons-io:2.4'
+
     androidTestCompile 'com.android.support.test.espresso:espresso-core:2.0'
     androidTestCompile 'com.android.support.test:testing-support-lib:0.1'
     androidTestCompile 'com.android.support.test.espresso:espresso-contrib:2.0'
-    androidTestCompile 'org.mockito:mockito-core:1.10.19'
-    androidTestCompile 'com.google.dexmaker:dexmaker:1.2'
-    androidTestCompile 'com.google.dexmaker:dexmaker-mockito:1.2'
-    androidTestCompile 'commons-io:commons-io:2.4'
 }

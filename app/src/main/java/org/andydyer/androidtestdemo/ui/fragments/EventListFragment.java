@@ -71,7 +71,7 @@ public class EventListFragment extends Fragment implements Callback<Events> {
 
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
-        DemoApplication.getInstance().inject(this);
+        DemoApplication.getInstance().getGraph().inject(this);
 
         if(savedInstanceState == null) {
             //TODO: Show progress spinner while loading
