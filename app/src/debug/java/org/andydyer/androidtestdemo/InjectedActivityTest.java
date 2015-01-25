@@ -1,6 +1,5 @@
 package org.andydyer.androidtestdemo;
 
-import android.app.Activity;
 import android.test.ActivityInstrumentationTestCase2;
 
 import org.andydyer.androidtestdemo.api.AuthenticationService;
@@ -10,11 +9,11 @@ import javax.inject.Inject;
 /**
  * Created by andy on 1/16/15.
  */
-public class InjectedActivityTest<T extends Activity> extends ActivityInstrumentationTestCase2<T> {
+public class InjectedActivityTest extends ActivityInstrumentationTestCase2 {
 
     @Inject AuthenticationService authenticationService;
 
-    public InjectedActivityTest(Class<T> activityClass) { super(activityClass); }
+    public InjectedActivityTest(Class activityClass) { super(activityClass); }
 
     @Override
     protected void setUp() throws Exception {

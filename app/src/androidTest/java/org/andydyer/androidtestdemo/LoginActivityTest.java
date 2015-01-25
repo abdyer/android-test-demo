@@ -19,7 +19,7 @@ import static org.mockito.Mockito.verify;
 /**
  * Created by andy on 9/6/14.
  */
-public class LoginActivityTest extends InjectedActivityTest<LoginActivity> {
+public class LoginActivityTest extends InjectedActivityTest {
 
     public LoginActivityTest() {
         super(LoginActivity.class);
