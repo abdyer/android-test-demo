@@ -56,13 +56,11 @@ dependencies {
     compile 'com.android.support:recyclerview-v7:21.0.+'
 
     // Dagger 2 dependencies
-    compile 'com.google.dagger:dagger:2.0-SNAPSHOT'
-    apt ('com.google.dagger:dagger-compiler:2.0-SNAPSHOT') {
-        // exclude current auto common snapshot dependency so we can manually include the most recent working one below
-        exclude group: 'com.google.auto'
-    }
-    apt files('libs/auto-common-1.0-20150122.001631-7.jar')
+    compile files('libs/dagger-2.0-20150122.022617-13.jar')
+    apt files('libs/dagger-compiler-2.0-20150122.022637-13-jar-with-dependencies.jar')
+    apt files('libs/dagger-producers-2.0-20150122.022620-1.jar')
     provided 'org.glassfish:javax.annotation:10.0-b28'
+    compile 'javax.inject:javax.inject:1'
 
     debugCompile('org.mockito:mockito-core:1.10.19') {
         exclude group: 'org.hamcrest'
