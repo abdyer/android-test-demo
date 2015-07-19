@@ -1,6 +1,5 @@
 package org.andydyer.androidtestdemo.ui.fragments;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -147,9 +146,9 @@ public class EventListFragment extends Fragment implements Callback<Events> {
 
     private void launchWebViewActivity(String path) {
         String url = String.format("http://github.com/%s", path);
-        Intent intent = new Intent(getActivity(), WebViewActivity.class);
-        intent.putExtra(WebViewActivity.EXTRA_TITLE, path);
-        intent.putExtra(WebViewActivity.EXTRA_URL, url);
-        startActivity(intent);
+        WebViewActivity.intent(getActivity())
+                .title(path)
+                .url(url)
+                .start();
     }
 }
